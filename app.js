@@ -16,13 +16,17 @@ const setQuiz = () => {
 }
 setQuiz();
 
+const clickHandler = (e) => {
+  if (correct === e.target.textContent) {
+    window.alert('正解');
+  } else {
+    window.alert('不正解');
+  }
+};
+
 // ボタンをクリックしたら正誤判定
 for (let index = 0; index < answers.length; index++) {
   $button[index].addEventListener('click', (e) => {
-    if (correct === e.target.textContent) {
-      window.alert('正解');
-    } else {
-      window.alert('不正解');
-    }
+    clickHandler(e);
   })
 };
