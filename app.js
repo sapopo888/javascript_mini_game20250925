@@ -2,4 +2,4 @@ const question = 'ゲーム市場、最も売れたゲーム機は次のうち�
 const answers = ['スーパーファミコン', 'プレイステーション２', 'Nintendo Switch', 'ニンテンドーDS'];
 const correct = 'ニンテンドーDS'
 
-console.log(document.getElementById('js-question'));
+document.getElementById('js-question').textContent = question;
