@@ -3,12 +3,18 @@ const answers = ['スーパーファミコン', 'プレイステーション２'
 const correct = 'ニンテンドーDS'
 
 const $button = document.getElementsByTagName('button');
+console.log($button);
 
-document.getElementById('js-question').textContent = question;
-$button[0].textContent = answers[0];
-$button[1].textContent = answers[1];
-$button[2].textContent = answers[2];
-$button[3].textContent = answers[3];
+const setQuiz = () => {
+  document.getElementById('js-question').textContent = question;
+  let buttonNumber = 0;
+  let buttonLength = $button.length;
+  while (buttonNumber < buttonLength) {
+    $button[buttonNumber].textContent = answers[buttonNumber];
+    buttonNumber++;
+  }
+}
+setQuiz();
 
 // ボタンをクリックしたら正誤判定
 for (let index = 0; index < answers.length; index++) {
