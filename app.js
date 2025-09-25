@@ -3,12 +3,13 @@ const answers = ['スーパーファミコン', 'プレイステーション２'
 const correct = 'ニンテンドーDS'
 
 const $button = document.getElementsByTagName('button');
+const buttonLength = $button.length;
+
 
 // クイズの問題文、選択肢を定義
 const setQuiz = () => {
   document.getElementById('js-question').textContent = question;
   let buttonNumber = 0;
-  let buttonLength = $button.length;
   while (buttonNumber < buttonLength) {
     $button[buttonNumber].textContent = answers[buttonNumber];
     buttonNumber++;
@@ -25,7 +26,7 @@ const clickHandler = (e) => {
 };
 
 // ボタンをクリックしたら正誤判定
-for (let index = 0; index < answers.length; index++) {
+for (let index = 0; index < buttonLength; index++) {
   $button[index].addEventListener('click', (e) => {
     clickHandler(e);
   })
