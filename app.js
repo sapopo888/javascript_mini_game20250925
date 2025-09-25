@@ -3,8 +3,8 @@ const answers = ['スーパーファミコン', 'プレイステーション２'
 const correct = 'ニンテンドーDS'
 
 const $button = document.getElementsByTagName('button');
-console.log($button);
 
+// クイズの問題文、選択肢を定義
 const setQuiz = () => {
   document.getElementById('js-question').textContent = question;
   let buttonNumber = 0;
@@ -18,8 +18,8 @@ setQuiz();
 
 // ボタンをクリックしたら正誤判定
 for (let index = 0; index < answers.length; index++) {
-  $button[index].addEventListener('click', () => {
-    if (correct === $button[index].textContent) {
+  $button[index].addEventListener('click', (e) => {
+    if (correct === e.target.textContent) {
       window.alert('正解');
     } else {
       window.alert('不正解');
