@@ -40,19 +40,29 @@ const buttonLength = $button.length;
 // クイズの問題文、選択肢を定義
 const setQuiz = () => {
   let buttonNumber = 0;
-  document.getElementById("js-question").textContent = question;
+  document.getElementById("js-question").textContent = quiz[quizIndex].question;
   while (buttonNumber < buttonLength) {
-    $button[buttonNumber].textContent = answers[buttonNumber];
+    $button[buttonNumber].textContent = quiz[quizIndex].answers[buttonNumber];
     buttonNumber++;
   }
 };
 setQuiz();
 
 const clickHandler = (e) => {
-  if (correct === e.target.textContent) {
+  if (quiz[quizIndex].correct === e.target.textContent) {
     window.alert("正解");
   } else {
     window.alert("不正解");
+  }
+
+  quizIndex++; // ここでクイズを次に進める
+
+  if(quizIndex < quizLength){
+    // まだ問題が残っている
+    setQuiz(); // 問題文や選択肢の書き換えを行なっている関数をここで呼ぶ
+  } else {
+    // もう問題が残っていない
+    window.alert('終了！')
   }
 };
 
